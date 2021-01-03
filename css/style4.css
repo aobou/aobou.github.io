@@ -1,0 +1,206 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+button.button1 {
+    /* 文字サイズを1.4emに指定 */
+    font-size: 1.4em;
+
+    /* 文字の太さをboldに指定 */
+    font-weight: bold;
+
+    /* 縦方向に10px、
+     * 横方向に30pxの余白を指定 */
+    padding: 10px 30px;
+
+    /* 背景色を濃い青色に指定 */
+    background-color: #248;
+
+    /* 文字色を白色に指定 */
+    color: #fff;
+
+    /* ボーダーをなくす */
+    border-style: none;
+}
+
+button.button1:hover {
+    /* 背景色を明るい青色に指定 */
+    background-color: #24d;
+
+    /* 文字色を白色に指定 */
+    color: #fff;
+}
+
+button.button2 {
+    /* 文字サイズを1.4emに指定 */
+    font-size: 1.4em;
+
+    /* 文字の太さをboldに指定 */
+    font-weight: bold;
+
+    /* 縦方向に10px、
+     * 横方向に30pxの余白を指定 */
+    padding: 10px 30px;
+
+    /* 背景色を濃い青色に指定 */
+    background-color: #556b2f;
+
+    /* 文字色を白色に指定 */
+    color: #fff;
+
+    /* ボーダーをなくす */
+    border-style: none;
+}
+
+button.button2:hover {
+    /* 背景色を明るい青色に指定 */
+    background-color: #6b8e23;
+
+    /* 文字色を白色に指定 */
+    color: #fff;
+}
+
+
+
+.box28 {
+    margin: 2em 0;
+    background: #800000;
+}
+.box28 .box-title {
+    font-size: 1.2em;
+    background: #b22222;
+    padding: 4px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.box28 p {
+    padding: 15px 20px;
+    margin: 0;
+}
+
+.box29 {
+    margin: 2em 0;
+    background: #8fbc8f;
+}
+.box29 .box-title {
+    font-size: 1.2em;
+    background: #2e8b57;
+    padding: 4px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+.box29 p {
+    padding: 15px 20px;
+    margin: 0;
+}
+
+
+.cp_iptxt {
+	position: relative;
+	width: 80%;
+	margin: 5px 3%;
+}
+.cp_iptxt input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='text']:focus {
+	border: 1px solid #ffff00;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(255,255,0, .5);
+}
+
+
+.cp_iptxt input[type='mail'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='mail']:focus {
+	border: 1px solid #ffff00;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(255,255,0, .5);
+}
+
+.cp_iptxt input[type='tel'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='tel']:focus {
+	border: 1px solid #ffff00;
+	outline: none;
+    box-shadow: 0 0 5px 1px rgba(255,255,0, .5);
+}
+
+.cp_iptxt input[type='date'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='date']:focus {
+	border: 1px solid #ffff00;
+	outline: none;
+    box-shadow: 0 0 5px 1px rgba(255,255,0, .5);
+}
+
+
+.sel input{
+	display: none;
+}
+.sel label{
+	display: block;
+	float: left;
+	cursor: pointer;
+	width: 40px;
+	margin: 0;
+	padding: 12px 5px;
+	border-right: 1px solid #abb2b7;
+	background: #bdc3c7;
+	color: #555e64;
+	font-size: 14px;
+	text-align: center;
+	line-height: 1;
+	transition: .2s;
+}
+.sel label:first-of-type{
+	border-radius: 3px 0 0 3px;
+}
+.sel label:last-of-type{
+	border-right: 0px;
+	border-radius: 0 3px 3px 0;
+}
+.sel input[type="radio"]:checked + label {
+	background-color: #ff6347;
+	color: #fff;
+}
+

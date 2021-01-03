@@ -1,0 +1,408 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*----------------------
+	デフォルトスタイル
+-----------------------*/
+body,p,h1,h2,h3,h4,h5,h6,
+span,small,strong,
+div,ul,li,
+figure,img{
+    margin:0;
+    padding:0;
+	border:none;
+	outline:none;
+	font-size:1rem;
+}
+
+header,footer,nav,section{display:block;}
+
+html{
+	font:13px/1.3 "ヒラギノ角ゴ Pro W3";
+	-webkit-text-size-adjust:none;}
+
+li{list-style:none;
+}
+
+
+/*----------------------
+	レイアウト
+-----------------------*/
+body{
+	background:#165e83;
+	width:100%;
+	color: #ffff;
+}
+
+/* リンク色変更はここ */
+a{
+	color:#db7093;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+
+/*----------------------------------------
+ ホーム画面
+----------------------------------------*/
+
+/* ヘッダ部
+--------------------*/
+#head{
+	overflow:hidden;
+	border-bottom:solid 1px #333631;
+	position:relative;
+}
+
+#head h1{
+	padding-top:20px;
+}
+
+h1 span{
+	display:block;
+	font-size:24px;
+	line-height:1.2;
+}
+
+h1 a{
+	font-size:24px;
+}
+
+
+/* サイト説明部分
+--------------------*/
+	
+
+/* 避難所誘導画面
+--------------------*/
+.ad{
+	width:95%;
+	text-align:center;
+	margin:5px auto 0;
+	padding:3% 1% 2%;
+	border:solid 1px #F9F393;
+	outline:solid 3px #7F827D;}
+
+.ad img{
+	width:99%;
+	max-width:100px;
+	height:auto;}
+	
+	/* 避難所画像をホバーした */
+	img.hinan_button:hover{
+	 
+		/* 透明度を上げることで、画像の色を薄く見せる。*/
+		opacity:0.5;
+	 
+		/* リンクをホバーしたときのカーソルにする。*/
+		cursor: pointer;
+	}
+	 
+	/* 避難所画像をクリックした瞬間 */
+	img.hinan_button:active{
+	 
+		/* 要素を若干下に下げることで、押した感じを出す。*/
+	 
+		/* 今いる位置から相対的に3px下に配置する。*/
+		position: relative;
+		top: 3px;
+	 
+	}
+
+
+
+/* 連絡先部分
+--------------------*/
+.cp_actab {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+	color: #ffffff;
+}
+.cp_actab input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.cp_actab label {
+	font-weight: bold;
+	line-height: 3;
+	position: relative;
+	display: block;
+	padding: 0 0 0 1em;
+	cursor: pointer;
+	margin: 0 0 1px 0;
+	background: #da3c41;
+}
+.cp_actab .cp_actab-content {
+	overflow: hidden;
+	max-height: 0;
+	-webkit-transition: max-height 0.35s;
+	transition: max-height 0.35s;
+	color: #333333;
+	background: #f1c6c6;
+}
+.cp_actab .cp_actab-content p {
+	margin: 1em;
+}
+/* :checked */
+.cp_actab input:checked ~ .cp_actab-content {
+	max-height: 20em;
+}
+/* Icon */
+.cp_actab label::after {
+	line-height: 3;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 3em;
+	height: 3em;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+	text-align: center;
+}
+.cp_actab input[type=checkbox] + label::after {
+	content: '+';
+}
+.cp_actab input[type=checkbox]:checked + label::after {
+	transform: rotate(315deg);
+}
+
+
+/* 情報カードボタン部分
+--------------------*/
+.desc{
+	margin-bottom:1%;
+	padding:2% 1%;
+	border:solid #333631;
+	border-width:2px 0 2px;
+	font-size:24px;
+	text-align: center;
+}
+
+.btn-flat-border {
+	display: inline-block;
+	padding: 0.3em 1em;
+	text-decoration: none;
+	color: #CD5C5C;
+	border: solid 2px #CD5C5C;
+	border-radius: 3px;
+	transition: .4s;
+  }
+  
+.btn-flat-border:hover {
+	background: #CD5C5C;
+	color: white;
+  }
+
+
+/* フッター部分
+--------------------*/
+ul.topnav {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	background-color: #1b2538;
+}
+ul.topnav li {
+	float: left;
+}
+ul.topnav li a {
+	display: block;
+	padding: 14px 16px;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+}
+ul.topnav li a:hover:not(.active) {
+	background-color: #a9bce2;
+}
+ul.topnav li a.active {
+	background-color: #da3c41;
+}
+ul.topnav li.right {
+	float: right;
+}
+@media screen and (max-width: 480px) {
+	ul.topnav li.right, ul.topnav li {
+		float: none;
+	}
+}
+
+.foot_link{
+	overflow:hidden;
+}
+
+.top{
+	background:url(img/link_bg.gif) repeat left top;
+	margin:2% 2% 0 77%;
+	padding:2% 3%;
+	display:block;
+	border:solid 1px #BBBEBA;
+	border-radius:5px 5px 0px 0px;
+	text-align:center;
+	font-weight:bold;
+	text-shadow: 0px 1px 1px #BBBABA;
+	-moz-box-shadow:0px 0px 1px 1px #333631;
+	-webkit-box-shadow:0px 0px 1px 1px #333631;
+	box-shadow:0px 0px 1px 1px #333631;
+
+}
+
+.back{
+	background:url(img/link_bg.gif) repeat left top;
+	margin:2% 2% 0 54%;
+	padding:2% 3%;
+	display:block;
+	border:solid 1px #BBBEBA;
+	border-radius:5px 5px 0px 0px;
+	text-align:center;
+	font-weight:bold;
+	text-shadow: 0px 1px 1px #BBBABA;
+	-moz-box-shadow:0px 0px 1px 1px #333631;
+	-webkit-box-shadow:0px 0px 1px 1px #333631;
+	box-shadow:0px 0px 1px 1px #333631;
+	float:left;
+}
+
+address{
+	background:#333631;
+	padding:3% 0;
+	text-align:center;
+	color:#B2B5B0;
+}
+
+address a{
+	color:#B2B5B0;
+}
+
+
+
+/*----------------------------------------
+ 避難情報カード画面
+----------------------------------------*/
+body {
+	width: 100%;
+}
+  
+h2 {
+	  text-align: center;
+	  margin: 0 auto;
+	  margin-top: 20px;
+}
+  
+table {
+	border-collapse: collapse;
+	border-spacing: 5px;
+	margin: 0 auto;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+  
+table tr{
+	border-bottom: solid 2px white;
+}
+  
+table tr:last-child{
+	border-bottom: none;
+}
+  
+table th{
+	position: relative;
+	text-align: left;
+	width: 5%;
+	background-color: #ffd42d;
+	color: green;
+	text-align: center;
+	padding: 10px 0;
+}
+  
+table th:after{
+	display: block;
+	content: "";
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	top:calc(50% - 10px);
+	right:-10px;
+	border-left: 10px solid #ffd42d;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+}
+  
+table td{
+	text-align: left;
+	width: 20%;
+	text-align: center;
+	background-color: #0000;
+	padding: 10px 0;
+}
+  
+  
+/*----------------------------------------
+ ページ上部へ共通
+----------------------------------------*/
+/*--------------------------------
+  scroll animation fadein
+--------------------------------*/
+.js-scroll-fadein {
+	transition: opacity 1s;
+	visibility: hidden;
+	opacity: 0;
+  }
+  .js-scroll-fadein.is-fadein {
+	visibility: visible;
+	opacity: 1;
+  }
+  
+  /*--------------------------------
+	arrow
+  --------------------------------*/
+  .arrow {
+	position: fixed;
+	right: 12px;
+	bottom: 12px;
+	color: #fff;
+	cursor: pointer;
+	background-color: #c4c4c4;
+	border-radius: 22px;
+	padding: 20px;
+	transition: all 0.2s ease-in-out;
+  }
+  .arrow:hover {
+	opacity: 0.8;
+	bottom: 15px;
+	box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.5);
+  }
+  .arrow:before, .arrow:after {
+	content: "";
+	width: 12px;
+	height: 12px;
+	border-top: solid 3px #fff;
+	border-right: solid 3px #fff;
+	transform: rotate(-45deg);
+	position: absolute;
+	left: 14px;
+  }
+  .arrow:before {
+	top: 11px;
+  }
+  .arrow:after {
+	top: 21px;
+  }
+
+  /*--------------------------------
+	文字の点滅
+  --------------------------------*/
+  .blink {
+	animation: blinkAnime 1s infinite alternate;
+  }
+  @keyframes blinkAnime{
+	 0% { color: #ff6347 }
+   100% { color: #990000 }
+  }
