@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+<meta name="keywords" content="青森県,防災,地震,津波,火災,豪雨,避難所">
+<meta name="description" content="青森防災アプリ">
+<title>AOBOU 青森防災アプリ</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/style5.css" media="screen">
+<link rel="manifest" href="json/manifest.json">
+
+<!-- アドレスバー等のブラウザのUIを非表示（ＩＯＳ対応） -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- default（Safariと同じ） / black（黒） / black-translucent（ステータスバーをコンテンツに含める） （ＩＯＳ対応）-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!-- ホーム画面に表示されるアプリ名 （ＩＯＳ対応）-->
+<meta name="apple-mobile-web-app-title" content="TAP10">
+<!-- ホーム画面に表示されるアプリアイコン （ＩＯＳ対応）-->
+<link rel="apple-touch-icon" href="img/aobouicon512.png">
+
+</head>
+<body>
+
+<!-- ヘッダここから -->
+<header>
+<div id="head">
+
+	<h1>
+		<span><center><img src="img/aoboulogo.png" width="15%" height="15%"><br><font color="#f0e68c">AOBOU　青森防災</font></center>
+		</span>
+	</h1>
+</div>
+</header>
+<!-- /ヘッダここまで -->
+
+<!-- アラーム再生ここから -->
+<center>
+<p>このアラームは自分の居場所や危険を知らせるためのアラーム音です。音量は使用機器で調節してください</p>
+<button class="Button-style2" onclick="stop()">停止</button>
+<button class="Button-style1" onclick="play()" id="play">再生</button>
+</center>
+<script language="javascript" type="text/javascript">
+var music = new Audio();
+function init() {
+  music.preload = "auto";
+  music.src = "sound/alarm.mp3";
+  music.load();
+
+  music.addEventListener("ended", function () {
+	music.currentTime = 0;
+	music.play();
+  }, false);
+}
+
+function play() {
+  music.loop = true;
+  music.play();
+}
+
+function stop() {
+  music.pause();
+  music.currentTime = 0;
+}
+
+init();
+</script>
+<!-- /アラーム再生ここまで -->
+
+<!-- フッタここから -->
+<footer>
+
+	<span>緊急電話番号や避難情報メモの更新は「設定」ボタンより行ってください</span>
+	<ul class="topnav">
+		<li><a class="active" href="index.html">ホーム</a></li>
+		<li><a href="card.html">避難カード</a></li>
+		<li><a href="infomation.html">避難情報</a></li>
+		<li><a href="setting.html">各種設定</a></li>
+		<li class="right"><a href="about.html">AOBOU</a></li>
+	</ul>
+
+</footer>
+<!-- /フッタここまで -->
+</body>
+</html>

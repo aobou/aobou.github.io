@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+<meta name="keywords" content="青森県,防災,地震,津波,火災,豪雨,避難所">
+<meta name="description" content="青森防災アプリ">
+<title>AOBOU 青森防災アプリ</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/style2.css" media="screen">
+<link rel="manifest" href="json/manifest.json">
+
+<!-- アドレスバー等のブラウザのUIを非表示（ＩＯＳ対応） -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- default（Safariと同じ） / black（黒） / black-translucent（ステータスバーをコンテンツに含める） （ＩＯＳ対応）-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!-- ホーム画面に表示されるアプリ名 （ＩＯＳ対応）-->
+<meta name="apple-mobile-web-app-title" content="TAP10">
+<!-- ホーム画面に表示されるアプリアイコン （ＩＯＳ対応）-->
+<link rel="apple-touch-icon" href="img/aobouicon512.png">
+
+</head>
+<body>
+<div id="js-scroll-fadein" class="js-scroll-fadein arrow"></div>
+<script>
+	//スクロール量を取得する関数
+	function getScrolled() {
+	  return ( window.pageYOffset !== undefined ) ? window.pageYOffset: document.documentElement.scrollTop;
+	}
+  
+	//トップに戻るボタンの要素を取得
+	var topButton = document.getElementById( 'js-scroll-fadein' );
+	
+	//ボタンの表示・非表示
+	window.onscroll = function() {
+	  ( getScrolled() > 100 ) ? topButton.classList.add( 'is-fadein' ): topButton.classList.remove( 'is-fadein' );
+	};
+	
+	//トップに移動する関数
+	function scrollToTop() {
+	  var scrolled = getScrolled();
+	  window.scrollTo( 0, Math.floor( scrolled / 2 ) );
+	  if ( scrolled > 0 ) {
+		window.setTimeout( scrollToTop, 30 );
+	  }
+	};
+	
+	//イベント登録
+	topButton.onclick = function() {
+	  scrollToTop();
+	};
+</script>
+
+<!-- ヘッダここから -->
+<header>
+
+<div id="head">
+
+	<h1>
+		<span>
+			<center>
+				<a href="index.html">
+				<img src="img/aoboulogo.png" width="15%" height="15%"><br><font color="#f0e68c">AOBOU　青森防災</font>
+				</a>
+			</center>
+		</span>
+	</h1>
+	
+	</div>
+</header>
+<!-- /ヘッダここまで -->
+<!-- チェックここから -->
+<div>
+	<br>
+	<a href="infomation.html">＜　戻る</a><br>
+	<center>
+	<span><font size="+2">避難時チェックリスト</font></span>
+	<p id="junbicnt">0/12準備完了</p>
+	<p>緊急時はすみやかに避難しましょう</p>
+	</center>
+	<input id="toggle01" type="checkbox" onchange="cntchk()">
+	<label for="toggle01">電気のブレーカーを落とす</label>
+  
+	<input id="toggle02" type="checkbox" onchange="cntchk()">
+	<label for="toggle02">ガスの元栓を閉める</label>
+  
+	<input id="toggle03" type="checkbox" onchange="cntchk()">
+	<label for="toggle03">水道の元栓を閉める</label>
+
+	<input id="toggle04" type="checkbox" onchange="cntchk()">
+	<label for="toggle04">鍵をかける</label>
+  
+	<input id="toggle05" type="checkbox" onchange="cntchk()">
+	<label for="toggle05">避難先を近所に伝える</label>
+  
+	<input id="toggle06" type="checkbox" onchange="cntchk()">
+	<label for="toggle06">脱げにくく、厚底の靴を履く</label>
+
+	<input id="toggle07" type="checkbox" onchange="cntchk()">
+	<label for="toggle07">荷物はリュックへ入れる</label>
+  
+	<input id="toggle08" type="checkbox" onchange="cntchk()">
+	<label for="toggle08">２人以上で行動する</label>
+  
+	<input id="toggle09" type="checkbox" onchange="cntchk()">
+	<label for="toggle09">子供から目を離さない</label>
+
+	<input id="toggle10" type="checkbox" onchange="cntchk()">
+	<label for="toggle10">頭上・足元に注意</label>
+  
+	<input id="toggle11" type="checkbox" onchange="cntchk()">
+	<label for="toggle11">浸水時は棒などで足元を確認</label>
+  
+	<input id="toggle12" type="checkbox" onchange="cntchk()">
+	<label for="toggle12">困っている人には手助けをする</label>
+
+</div>
+<!-- /チェックここまで -->
+
+<script>
+	function cntchk(){
+		var cnt = 0;
+
+		if(toggle01.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle02.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle03.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle04.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle05.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle06.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle07.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle08.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle09.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle10.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle11.checked){
+			cnt = cnt + 1;
+		}
+		if(toggle12.checked){
+			cnt = cnt + 1;
+		}
+		if (cnt > 11) {
+			document.getElementById("junbicnt").innerHTML = "<span><font color='#e9967a'>" + cnt + "/12準備できました</font></span>";
+		} else {
+			document.getElementById("junbicnt").innerHTML = "<span><font color='#ffffff'>" + cnt + "/12準備できました</font></span>";
+		}
+	}
+
+</script>
+
+<!-- フッタここから -->
+<footer>
+
+	<span>緊急電話番号や避難情報メモの更新は「設定」ボタンより行ってください</span>
+	<ul class="topnav">
+		<li><a class="active" href="index.html">ホーム</a></li>
+		<li><a href="card.html">避難カード</a></li>
+		<li><a href="infomation.html">避難情報</a></li>
+		<li><a href="setting.html">各種設定</a></li>
+		<li class="right"><a href="about.html">AOBOU</a></li>
+	</ul>
+
+</footer>
+<!-- /フッタここまで -->
+</body>
+</html>

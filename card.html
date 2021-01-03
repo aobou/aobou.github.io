@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+<meta name="keywords" content="青森県,防災,地震,津波,火災,豪雨,避難所">
+<meta name="description" content="青森防災アプリ">
+<title>AOBOU 青森防災アプリ</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<link rel="manifest" href="json/manifest.json">
+
+<!-- アドレスバー等のブラウザのUIを非表示（ＩＯＳ対応） -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- default（Safariと同じ） / black（黒） / black-translucent（ステータスバーをコンテンツに含める） （ＩＯＳ対応）-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!-- ホーム画面に表示されるアプリ名 （ＩＯＳ対応）-->
+<meta name="apple-mobile-web-app-title" content="TAP10">
+<!-- ホーム画面に表示されるアプリアイコン （ＩＯＳ対応）-->
+<link rel="apple-touch-icon" href="img/aobouicon512.png">
+
+
+<script>
+	function pageload(){
+
+	   if(localStorage.getItem('name4') === null){
+			document.getElementById("name4").innerHTML = "例：青森　太郎";
+	   }else{
+		   var text = localStorage.getItem('name4');
+		   document.getElementById("name4").innerHTML = text;
+	   }
+	   if(localStorage.getItem('kana4') === null){
+			document.getElementById("kana4").innerHTML = "例：あおもり　たろう";
+	   }else{
+		   var text = localStorage.getItem('kana4');
+		   document.getElementById("kana4").innerHTML = text;
+	   }
+	   if(localStorage.getItem('birth4') === null){
+			document.getElementById("birth4").innerHTML = "例：1980/12/12";
+	   }else{
+		   var text = localStorage.getItem('birth4');
+		   document.getElementById("birth4").innerHTML = text;
+	   }
+	   if(localStorage.getItem('sex4') === null){
+			document.getElementById("sex4").innerHTML = "例：男性";
+	   }else{
+		   var text = localStorage.getItem('sex4');
+		   switch(text){
+			    case '1':
+		   			document.getElementById("sex4").innerHTML = "男性";
+					break;
+				case '2':
+		 		    document.getElementById("sex4").innerHTML = "女性";
+					break;
+				case '3':
+				    document.getElementById("sex4").innerHTML = "他";
+					break;
+				default:
+					document.getElementById("sex4").innerHTML = "他";
+					break;
+		   }
+	   }
+	   if(localStorage.getItem('blood4') === null){
+			document.getElementById("blood4").innerHTML = "例：Ａ型";
+	   }else{
+		   var text = localStorage.getItem('blood4');
+		   switch(text){
+			   case '4':
+				    document.getElementById("blood4").innerHTML = "Ａ型";
+					break;
+				case '5':
+		   			document.getElementById("blood4").innerHTML = "Ｂ型";
+					break;
+				case '6':
+　　  	   			document.getElementById("blood4").innerHTML = "Ｏ型";
+					break;
+				case '7':
+		   			document.getElementById("blood4").innerHTML = "ＡＢ型";
+				    break;
+				case '8':
+		   			document.getElementById("blood4").innerHTML = "他";
+				    break;
+				default:
+		   			document.getElementById("blood4").innerHTML = "他";
+				    break;
+		   }
+	   }
+	   if(localStorage.getItem('address4') === null){
+			document.getElementById("address4").innerHTML = "例：青森県青森市長島一丁目1-1";
+	   }else{
+		   var text = localStorage.getItem('address4');
+		   document.getElementById("address4").innerHTML = text;
+	   }
+	   if(localStorage.getItem('tel4') === null){
+			document.getElementById("tel4").innerHTML = "例：017-000-0000";
+	   }else{
+		   var text = localStorage.getItem('tel4');
+		   document.getElementById("tel4").innerHTML = text;
+	   }
+	   if(localStorage.getItem('emname4') === null){
+			document.getElementById("emname4").innerHTML = "例：青森　花子";
+	   }else{
+		   var text = localStorage.getItem('emname4');
+		   document.getElementById("emname4").innerHTML = text;
+	   }
+	   if(localStorage.getItem('emkana4') === null){
+			document.getElementById("emkana4").innerHTML = "例：あおもり　はなこ";
+	   }else{
+		   var text = localStorage.getItem('emkana4');
+		   document.getElementById("emkana4").innerHTML = text;
+	   }
+	   if(localStorage.getItem('emtel4') === null){
+			document.getElementById("emtel4").innerHTML = "例：017-999-9999";
+	   }else{
+		   var text = localStorage.getItem('emtel4');
+		   document.getElementById("emtel4").innerHTML = text;
+	   }
+	   if(localStorage.getItem('sick4') === null){
+			document.getElementById("sick4").innerHTML = "例：糖尿病　インスリン";
+	   }else{
+		   var text = localStorage.getItem('sick4');
+		   document.getElementById("sick4").innerHTML = text;
+	   }
+	   if(localStorage.getItem('memo4') === null){
+			document.getElementById("memo4").innerHTML = "例：自宅に犬が２匹います";
+	   }else{
+		   var text = localStorage.getItem('memo4');
+		   document.getElementById("memo4").innerHTML = text;
+	   }
+   };
+</script>
+</head>
+<body onload="pageload();">
+
+<!-- ヘッダここから -->
+<header>
+<div id="head">
+
+	<h1>
+		<span>
+			<center>
+				<a href="index.html">
+				<img src="img/aoboulogo.png" width="15%" height="15%"><br><font color="#f0e68c">AOBOU　青森防災</font>
+				</a>
+			</center>
+		</span>
+	</h1>
+	<a href="index.html">＜　戻る</a>
+</div>
+</header>
+<!-- /ヘッダここまで -->
+
+<!-- 避難情報カードここから -->
+<h2><font size="+2">避難情報カード</font></h2>
+
+<div>
+	<table class="table_box">
+	<tr>
+		<th>氏名</th>
+		<td><p id="name4">氏名が入ります</p></td>
+	</tr>
+	<tr>
+		<th>氏名かな</th>
+		<td><p id="kana4">氏名かなが入ります</p></td>
+	</tr>
+	<tr>
+		<th>生年月日</th>
+		<td><p id="birth4">生年月日が入ります</p></td>
+	</tr>
+	<tr>
+		<th>性別</th>
+		<td><p id="sex4">性別が入ります</p></td>
+	</tr>
+	<tr>
+		<th>血液型</th>
+		<td><p id="blood4">血液型が入ります</p></td>
+	</tr>
+	<tr>
+		<th>住所</th>
+		<td><p id="address4">住所が入ります</p></td>
+	</tr>
+	<tr>
+		<th>電話番号</th>
+		<td><p id="tel4">電話番号が入ります</p></td>
+	</tr>
+	<tr>
+		<th>緊急連絡者氏名</th>
+		<td><p id="emname4">緊急連絡者氏名が入ります</p></td>
+	</tr>
+	<tr>
+		<th>緊急連絡者氏名かな</th>
+		<td><p id="emkana4">緊急連絡者氏名かなが入ります</p></td>
+	</tr>
+	<tr>
+		<th>緊急連絡者電話番号</th>
+		<td><p id="emtel4">緊急連絡電話番号が入ります</p></td>
+	</tr>
+	<tr>
+		<th>持病／常用薬など</th>
+		<td><p id="sick4">持病・常備薬情報が入ります</p></td>
+	</tr>
+	<tr>
+		<th>メ  モ</th>
+		<td><p id="memo4">メモが入ります</p></td>
+	</tr>
+	</table>
+</div>
+<!-- /避難情報カードここまで -->
+
+
+<!-- フッタここから -->
+<footer>
+
+	<span>緊急電話番号や避難情報メモの更新は「設定」ボタンより行ってください</span>
+	<ul class="topnav">
+		<li><a class="active" href="index.html">ホーム</a></li>
+		<li><a href="card.html">避難カード</a></li>
+		<li><a href="infomation.html">避難情報</a></li>
+		<li><a href="setting.html">各種設定</a></li>
+		<li class="right"><a href="about.html">AOBOU</a></li>
+	</ul>
+
+</footer>
+<!-- /フッタここまで -->
+</body>
+</html>

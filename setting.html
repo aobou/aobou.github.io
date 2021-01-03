@@ -1,0 +1,757 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+<meta name="keywords" content="青森県,防災,地震,津波,火災,豪雨,避難所">
+<meta name="description" content="青森防災アプリ">
+<title>AOBOU 青森防災アプリ</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/style4.css" media="screen">
+<link rel="manifest" href="json/manifest.json">
+
+<!-- アドレスバー等のブラウザのUIを非表示（ＩＯＳ対応） -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- default（Safariと同じ） / black（黒） / black-translucent（ステータスバーをコンテンツに含める） （ＩＯＳ対応）-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!-- ホーム画面に表示されるアプリ名 （ＩＯＳ対応）-->
+<meta name="apple-mobile-web-app-title" content="TAP10">
+<!-- ホーム画面に表示されるアプリアイコン （ＩＯＳ対応）-->
+<link rel="apple-touch-icon" href="img/aobouicon512.png">
+
+<script>
+	 function pageload(){
+        if(localStorage.getItem('name1') === null){
+        }else{
+			var text = localStorage.getItem('name1');
+			document.getElementById("name1").value = text;
+		}
+        if(localStorage.getItem('tel1') === null){
+        }else{
+			var text = localStorage.getItem('tel1');
+			document.getElementById("tel1").value = text;
+		}
+        if(localStorage.getItem('mail1') === null){
+        }else{
+			var text = localStorage.getItem('mail1');
+			document.getElementById("mail1").value = text;
+		}
+
+
+        if(localStorage.getItem('name2') === null){
+        }else{
+			var text = localStorage.getItem('name2');
+			document.getElementById("name2").value = text;
+		}
+        if(localStorage.getItem('tel2') === null){
+        }else{
+			var text = localStorage.getItem('tel2');
+			document.getElementById("tel2").value = text;
+		}
+        if(localStorage.getItem('mail2') === null){
+        }else{
+			var text = localStorage.getItem('mail2');
+			document.getElementById("mail2").value = text;
+		}
+
+
+        if(localStorage.getItem('name3') === null){
+        }else{
+			var text = localStorage.getItem('name3');
+			document.getElementById("name3").value = text;
+		}
+        if(localStorage.getItem('tel3') === null){
+        }else{
+			var text = localStorage.getItem('tel3');
+			document.getElementById("tel3").value = text;
+		}
+        if(localStorage.getItem('mail3') === null){
+        }else{
+			var text = localStorage.getItem('mail3');
+			document.getElementById("mail3").value = text;
+		}
+
+
+        if(localStorage.getItem('name4') === null){
+        }else{
+			var text = localStorage.getItem('name4');
+			document.getElementById("name4").value = text;
+		}
+        if(localStorage.getItem('birth4') === null){
+        }else{
+			var text = localStorage.getItem('birth4');
+			document.getElementById("birth4").value = text;
+		}
+        if(localStorage.getItem('sex4') === null){
+        }else{
+			var text = localStorage.getItem('sex4');
+			document.getElementById("sex4").value = text;
+		}
+        if(localStorage.getItem('blood4') === null){
+        }else{
+			var text = localStorage.getItem('blood4');
+			document.getElementById("blood4").value = text;
+		}
+        if(localStorage.getItem('address4') === null){
+        }else{
+			var text = localStorage.getItem('address4');
+			document.getElementById("address4").value = text;
+		}
+        if(localStorage.getItem('tel4') === null){
+        }else{
+			var text = localStorage.getItem('tel4');
+			document.getElementById("tel4").value = text;
+		}
+        if(localStorage.getItem('emname4') === null){
+        }else{
+			var text = localStorage.getItem('emname4');
+			document.getElementById("emname4").value = text;
+		}
+        if(localStorage.getItem('emtel4') === null){
+        }else{
+			var text = localStorage.getItem('emtel4');
+			document.getElementById("emtel4").value = text;
+		}
+        if(localStorage.getItem('sick4') === null){
+        }else{
+			var text = localStorage.getItem('sick4');
+			document.getElementById("sick4").value = text;
+		}
+        if(localStorage.getItem('memo4') === null){
+        }else{
+			var text = localStorage.getItem('memo4');
+			document.getElementById("memo4").value = text;
+		}
+	};
+</script>
+</head>
+<body onload="pageload();">
+
+<!-- ヘッダここから -->
+<header>
+<div id="head">
+
+	<h1>
+		<span>
+			<center>
+				<a href="index.html">
+				<img src="img/aoboulogo.png" width="15%" height="15%"><br><font color="#f0e68c">AOBOU　青森防災</font>
+				</a>
+			</center>
+		</span>
+	</h1>
+	<a href="index.html">＜　戻る</a>
+</div>
+</header>
+<!-- /ヘッダここまで -->
+<div>
+	<center>
+	<a href="#title1"><font color="white">緊急連絡者１人目／</font></a>
+	<a href="#title2"><font color="white">緊急連絡者２人目／</font></a>
+	<a href="#title3"><font color="white">緊急連絡者３人目／</font></a>
+	<a href="#title4"><font color="white">個人情報カード</font></a>
+	</center>
+	</div>
+<!-- 連絡者１登録ここから -->
+<div class="box28">
+    <div id="title1" class="box-title">緊急連絡者１人目</div>
+	<p>連絡する人の名前・電話番号・メールアドレスを入力してください</p>
+	<div class="cp_iptxt">
+		<label class="ef">連絡者氏名
+		<input type="text" id="name1" name="name1" class="form-control" placeholder="連絡者氏名" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">連絡者電話番号
+		<input type="tel" id="tel1" name="tel1" class="form-control" placeholder="連絡者電話番号" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">連絡者メールアドレス
+		<input type="mail" id="mail1" name="mail1" class="form-control" placeholder="連絡者メールアドレス" required>
+		</label>
+	</div>
+	<button type="submit" id="renraku1-save" class="button1">決　定</button>
+	<button type="submit" id="renraku1-dele" class="button2">削　除</button>
+</div>
+<script>
+    //保存ボタンの処理
+	document.getElementById("renraku1-save").onclick = function(){
+	   var result = confirm('緊急連絡先を登録しますか？');
+       if(result){
+			//入力チェック（最低限名前と電話かメールどちらか入力必須）
+			var text0 = document.getElementById("name1").value;
+			if(!text0){
+				alert('連絡者の氏名が入力されていません');
+				document.getElementById("name1").focus();
+				exit;
+			}else{
+				var text1 = document.getElementById("tel1").value;
+				var text2 = document.getElementById("mail1").value;
+				if(!text1 && !text2){
+					alert('連絡者の電話番号かメールアドレスを入力してください');
+					document.getElementById("tel1").focus();
+					exit;
+				}
+			}
+
+		    //電話番号とメールアドレスの整合性チェック
+			var tel = document.getElementById('tel1').value.replace(/[━.*‐.*―.*－.*\-.*ー.*\-]/gi,'');
+			if(tel){
+				if (!tel.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$/)) {
+					alert('電話番号をもう一度確認してください');
+					document.getElementById("tel1").focus();
+					exit;
+				}
+			}
+			var address = document.getElementById('mail1').value;
+  			var reg = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
+			if(address){
+	  			if (!reg.test(address)) {
+					alert('メールアドレスをもう一度確認してください');
+					document.getElementById("mail1").focus();
+					exit;
+		    	}
+			}
+
+			var text = document.getElementById("name1").value;
+			if(!text){
+				localStorage.removeItem('name1');
+			}else{
+				localStorage.setItem('name1', text);
+			}
+			var text = document.getElementById("tel1").value;
+			if(!text){
+				localStorage.removeItem('tel1');
+			}else{
+				localStorage.setItem('tel1', text);
+			}
+			var text = document.getElementById("mail1").value;
+			if(!text){
+				localStorage.removeItem('mail1');
+			}else{
+				localStorage.setItem('mail1', text);
+			}
+			alert('内容を保存しました。');
+			location.reload(true);
+	   }
+    };
+
+    //削除ボタンの処理
+	document.getElementById("renraku1-dele").onclick = function(){
+		var result = confirm('緊急連絡先を削除しますか？');
+		if(result){
+			if(localStorage.getItem('name1') === null){
+			}else{
+				localStorage.removeItem('name1');
+			}
+			if(localStorage.getItem('tel1') === null){
+			}else{
+				localStorage.removeItem('tel1');
+			}
+			if(localStorage.getItem('mail1') === null){
+			}else{
+				localStorage.removeItem('mail1');
+			}
+			alert('保存内容を削除しました。');
+			location.reload(true);
+		}
+    };
+
+</script>
+
+<!-- /連絡者１登録ここまで -->
+
+<!-- 連絡者２登録ここから -->
+<div class="box28">
+    <div id="title2" class="box-title">緊急連絡者２人目</div>
+	<p>連絡する人の名前・電話番号・メールアドレスを入力してください</p>
+	<div class="cp_iptxt">
+		<label class="ef">連絡者氏名
+		<input type="text" id="name2" name="name2" class="form-control" placeholder="連絡者氏名" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">連絡者電話番号
+		<input type="tel" id="tel2" name="tel2" class="form-control" placeholder="連絡者電話番号" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">連絡者メールアドレス
+		<input type="mail" id="mail2" name="mail2" class="form-control" placeholder="連絡者メールアドレス" required>
+		</label>
+	</div>
+	<button type="submit" id="renraku2-save" class="button1">決　定</button>
+	<button type="submit" id="renraku2-dele" class="button2">削　除</button>
+</div>
+<script>
+    //保存ボタンの処理
+	document.getElementById("renraku2-save").onclick = function(){
+		var result = confirm('緊急連絡先を登録しますか？');
+    	if(result){
+			//入力チェック（最低限名前と電話かメールどちらか入力必須）
+			var text0 = document.getElementById("name2").value;
+			if(!text0){
+				alert('連絡者の氏名が入力されていません');
+				document.getElementById("name2").focus();
+				exit;
+			}else{
+				var text1 = document.getElementById("tel2").value;
+				var text2 = document.getElementById("mail2").value;
+				if(!text1 && !text2){
+					alert('連絡者の電話番号かメールアドレスを入力してください');
+					document.getElementById("tel2").focus();
+					exit;
+				}
+			}
+
+		    //電話番号とメールアドレスの整合性チェック
+			var tel = document.getElementById('tel2').value.replace(/[━.*‐.*―.*－.*\-.*ー.*\-]/gi,'');
+			if(tel){
+				if (!tel.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$/)) {
+					alert('電話番号をもう一度確認してください');
+					document.getElementById("tel2").focus();
+					exit;
+				}
+			}
+			var address = document.getElementById('mail2').value;
+  			var reg = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
+			if(address){
+	  			if (!reg.test(address)) {
+					alert('メールアドレスをもう一度確認してください');
+					document.getElementById("mail2").focus();
+					exit;
+		    	}
+			}
+
+
+			var text = document.getElementById("name2").value;
+			if(!text){
+				localStorage.removeItem('name2');
+			}else{
+				localStorage.setItem('name2', text);
+			}
+			var text = document.getElementById("tel2").value;
+			if(!text){
+				localStorage.removeItem('tel2');
+			}else{
+				localStorage.setItem('tel2', text);
+			}
+			var text = document.getElementById("mail2").value;
+			if(!text){
+				localStorage.removeItem('mail2');
+			}else{
+				localStorage.setItem('mail2', text);
+			}
+			alert('内容を保存しました。');
+			location.reload(true);
+		}
+    };
+
+    //削除ボタンの処理
+	document.getElementById("renraku2-dele").onclick = function(){
+		var result = confirm('緊急連絡先を削除しますか？');
+		if(result){
+			if(localStorage.getItem('name2') === null){
+			}else{
+				localStorage.removeItem('name2');
+			}
+			if(localStorage.getItem('tel2') === null){
+			}else{
+				localStorage.removeItem('tel2');
+			}
+			if(localStorage.getItem('mail2') === null){
+			}else{
+				localStorage.removeItem('mail2');
+			}
+			alert('保存内容を削除しました。');
+			location.reload(true);
+		}
+    };
+
+</script>
+<!-- /連絡者２登録ここまで -->
+
+<!-- 連絡者３登録ここから -->
+<div class="box28">
+    <div id="title3" class="box-title">緊急連絡者３人目</div>
+	<p>連絡する人の名前・電話番号・メールアドレスを入力してください</p>
+	<div class="cp_iptxt">
+		<label class="ef">連絡者氏名
+		<input type="text" id="name3" name="name3" class="form-control" placeholder="連絡者氏名" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">連絡者電話番号
+		<input type="tel" id="tel3" name="tel3" class="form-control" placeholder="連絡者電話番号" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">連絡者メールアドレス
+		<input type="mail" id="mail3" name="mail3" class="form-control" placeholder="連絡者メールアドレス" required>
+		</label>
+	</div>
+	<button type="submit" id="renraku3-save" class="button1">決　定</button>
+	<button type="submit" id="renraku3-dele" class="button2">削　除</button>
+</div>
+<script>
+    //保存ボタンの処理
+	document.getElementById("renraku3-save").onclick = function(){
+		var result = confirm('緊急連絡先を登録しますか？');
+    	if(result){
+			//入力チェック（最低限名前と電話かメールどちらか入力必須）
+			var text0 = document.getElementById("name3").value;
+			if(!text0){
+				alert('連絡者の氏名が入力されていません');
+				document.getElementById("name3").focus();
+				exit;
+			}else{
+				var text1 = document.getElementById("tel3").value;
+				var text2 = document.getElementById("mail3").value;
+				if(!text1 && !text2){
+					alert('連絡者の電話番号かメールアドレスを入力してください');
+					document.getElementById("tel3").focus();
+					exit;
+				}
+			}
+
+		    //電話番号とメールアドレスの整合性チェック
+			var tel = document.getElementById('tel3').value.replace(/[━.*‐.*―.*－.*\-.*ー.*\-]/gi,'');
+			if(tel){
+				if (!tel.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$/)) {
+					alert('電話番号をもう一度確認してください');
+					document.getElementById("tel3").focus();
+					exit;
+				}
+			}
+			var address = document.getElementById('mail3').value;
+  			var reg = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
+			if(address){
+	  			if (!reg.test(address)) {
+					alert('メールアドレスをもう一度確認してください');
+					document.getElementById("mail3").focus();
+					exit;
+		    	}
+			}
+
+			var text = document.getElementById("name3").value;
+			if(!text){
+				localStorage.removeItem('name3');
+			}else{
+				localStorage.setItem('name3', text);
+			}
+			var text = document.getElementById("tel3").value;
+			if(!text){
+				localStorage.removeItem('tel3');
+			}else{
+				localStorage.setItem('tel3', text);
+			}
+			var text = document.getElementById("mail3").value;
+			if(!text){
+				localStorage.removeItem('mail3');
+			}else{
+				localStorage.setItem('mail3', text);
+			}
+			alert('内容を保存しました。');
+			location.reload(true);
+		}
+    };
+
+    //削除ボタンの処理
+	document.getElementById("renraku3-dele").onclick = function(){
+		var result = confirm('緊急連絡先を削除しますか？');
+		if(result){
+			if(localStorage.getItem('name3') === null){
+			}else{
+				localStorage.removeItem('name3');
+			}
+			if(localStorage.getItem('tel3') === null){
+			}else{
+				localStorage.removeItem('tel3');
+			}
+			if(localStorage.getItem('mail3') === null){
+			}else{
+				localStorage.removeItem('mail3');
+			}
+			alert('保存内容を削除しました。');
+			location.reload(true);
+		}
+    };
+
+</script>
+<!-- /連絡者３登録ここまで -->
+
+<!-- 個人情報カード登録ここから -->
+<div class="box29">
+    <div id="title4" class="box-title">個人情報カード</div>
+	<p>ご自身の情報を入力してください</p>
+	<div class="cp_iptxt">
+		<label class="ef">氏名
+		<input type="text" id="name4" name="name4" class="form-control" placeholder="氏名" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">氏名かな
+		<input type="text" id="kana4" name="kana4" class="form-control" placeholder="氏名かな" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">生年月日
+		<input type="date" id="birth4" name="birth4" class="form-control" placeholder="生年月日" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">性別
+		<div class="sel">
+			<input type="radio" name="sex4" id="select1" value="1">
+			<label for="select1">男性</label>
+			<input type="radio" name="sex4" id="select2" value="2">
+			<label for="select2">女性</label>
+			<input type="radio" name="sex4" id="select3" value="3">
+			<label for="select3">他</label>
+		</div>
+		</label>
+	</div>
+	<br><br>
+	<div class="cp_iptxt">
+		<label class="ef">血液型
+		<div class="sel">
+			<input type="radio" name="blood4" id="select4" value="4">
+			<label for="select4">Ａ型</label>
+			<input type="radio" name="blood4" id="select5" value="5">
+			<label for="select5">Ｂ型</label>
+			<input type="radio" name="blood4" id="select6" value="6">
+			<label for="select6">Ｏ型</label>
+			<input type="radio" name="blood4" id="select7" value="7">
+			<label for="select7">AB型</label>
+			<input type="radio" name="blood4" id="select8" value="8">
+			<label for="select8">他</label>
+		</div>
+		</label>
+	</div>
+	<br><br>
+	<div class="cp_iptxt">
+		<label class="ef">住所
+		<input type="text" id="address4" name="address4" class="form-control" placeholder="住所" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">電話番号
+		<input type="text" id="tel4" name="tel4" class="form-control" placeholder="電話番号" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">緊急連絡氏名
+		<input type="text" id="emname4" name="emname4" class="form-control" placeholder="緊急連絡氏名" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">緊急連絡氏名かな
+		<input type="text" id="emkana4" name="emkana4" class="form-control" placeholder="緊急連絡氏名かな" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">緊急連絡電話番号
+		<input type="text" id="emtel4" name="emtel4" class="form-control" placeholder="緊急連絡電話番号" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">持病／常備薬など
+		<input type="text" id="sick4" name="sick4" class="form-control" placeholder="持病／常備薬など" required>
+		</label>
+	</div>
+	<div class="cp_iptxt">
+		<label class="ef">メモ（特記事項など）
+		<input type="text" id="memo4" name="memo4" class="form-control" placeholder="メモ（特記事項など）" required>
+		</label>
+	</div>
+	<button type="submit" id="infocard-save" class="button1">決　定</button>
+	<button type="submit" id="infocard-dele" class="button2">削　除</button>
+</div>
+<script>
+    //保存ボタンの処理
+	document.getElementById("infocard-save").onclick = function(){
+		var result = confirm('緊急連絡先を登録しますか？');
+    	if(result){
+			//入力チェック（最低限名前のみ入力必須）
+			var text0 = document.getElementById("name4").value;
+			if(!text0){
+				alert('氏名が入力されていません');
+				document.getElementById("name4").focus();
+				exit;
+			}
+
+		    //各電話番号の整合性チェック
+			var tel = document.getElementById('tel4').value.replace(/[━.*‐.*―.*－.*\-.*ー.*\-]/gi,'');
+			if(tel){
+				if (!tel.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$/)) {
+					alert('電話番号をもう一度確認してください');
+					document.getElementById("tel4").focus();
+					exit;
+				}
+			}
+			var tel = document.getElementById('emtel4').value.replace(/[━.*‐.*―.*－.*\-.*ー.*\-]/gi,'');
+			if(tel){
+				if (!tel.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$/)) {
+					alert('電話番号をもう一度確認してください');
+					document.getElementById("emtel4").focus();
+					exit;
+				}
+			}
+
+
+			var text = document.getElementById("name4").value;
+			if(!text){
+				localStorage.removeItem('name4');
+			}else{
+				localStorage.setItem('name4', text);
+			}
+			var text = document.getElementById("kana4").value;
+			if(!text){
+				localStorage.removeItem('kana4');
+			}else{
+				localStorage.setItem('kana4', text);
+			}
+			var text = document.getElementById("birth4").value;
+			if(!text){
+				localStorage.removeItem('birth4');
+			}else{
+				localStorage.setItem('birth4', text);
+			}
+			var text = document.getElementById("sex4").value;
+			if(!text){
+				localStorage.removeItem('sex4');
+			}else{
+				localStorage.setItem('sex4', text);
+			}
+			var text = document.getElementById("blood4").value;
+			if(!text){
+				localStorage.removeItem('blood4');
+			}else{
+				localStorage.setItem('blood4', text);
+			}
+			var text = document.getElementById("address4").value;
+			if(!text){
+				localStorage.removeItem('address4');
+			}else{
+				localStorage.setItem('address4', text);
+			}
+			var text = document.getElementById("tel4").value;
+			if(!text){
+				localStorage.removeItem('tel4');
+			}else{
+				localStorage.setItem('tel4', text);
+			}
+			var text = document.getElementById("emname4").value;
+			if(!text){
+				localStorage.removeItem('emname4');
+			}else{
+				localStorage.setItem('emname4', text);
+			}
+			var text = document.getElementById("emkana4").value;
+			if(!text){
+				localStorage.removeItem('emkana4');
+			}else{
+				localStorage.setItem('emkana4', text);
+			}
+			var text = document.getElementById("emtel4").value;
+			if(!text){
+				localStorage.removeItem('emtel4');
+			}else{
+				localStorage.setItem('emtel4', text);
+			}
+			var text = document.getElementById("sick4").value;
+			if(!text){
+				localStorage.removeItem('sick4');
+			}else{
+				localStorage.setItem('sick4', text);
+			}
+			var text = document.getElementById("memo4").value;
+			if(!text){
+				localStorage.removeItem('memo4');
+			}else{
+				localStorage.setItem('memo4', text);
+			}
+			alert('内容を保存しました。');
+			location.reload(true);
+		}
+    };
+
+    //削除ボタンの処理
+	document.getElementById("infocard-dele").onclick = function(){
+		var result = confirm('緊急連絡先を削除しますか？');
+		if(result){
+			if(localStorage.getItem('name4') === null){
+			}else{
+				localStorage.removeItem('name4');
+			}
+			if(localStorage.getItem('kana4') === null){
+			}else{
+				localStorage.removeItem('kana4');
+			}
+			if(localStorage.getItem('birth4') === null){
+			}else{
+				localStorage.removeItem('birth4');
+			}
+			if(localStorage.getItem('sex4') === null){
+			}else{
+				localStorage.removeItem('sex4');
+			}
+			if(localStorage.getItem('blood4') === null){
+			}else{
+				localStorage.removeItem('blood4');
+			}
+			if(localStorage.getItem('address4') === null){
+			}else{
+				localStorage.removeItem('address4');
+			}
+			if(localStorage.getItem('tel4') === null){
+			}else{
+				localStorage.removeItem('tel4');
+			}
+			if(localStorage.getItem('emname4') === null){
+			}else{
+				localStorage.removeItem('emname4');
+			}
+			if(localStorage.getItem('emkana4') === null){
+			}else{
+				localStorage.removeItem('emkana4');
+			}
+			if(localStorage.getItem('emtel4') === null){
+			}else{
+				localStorage.removeItem('emtel4');
+			}
+			if(localStorage.getItem('sick4') === null){
+			}else{
+				localStorage.removeItem('sick4');
+			}
+			if(localStorage.getItem('memo4') === null){
+			}else{
+				localStorage.removeItem('memo4');
+			}
+			alert('保存内容を削除しました。');
+			location.reload(true);
+		}
+    };
+
+</script>
+<!-- /個人情報カード登録ここまで -->
+
+
+<!-- フッタここから -->
+<footer>
+
+	<span>緊急電話番号や避難情報メモの更新は「設定」ボタンより行ってください</span>
+	<ul class="topnav">
+		<li><a class="active" href="index.html">ホーム</a></li>
+		<li><a href="card.html">避難カード</a></li>
+		<li><a href="infomation.html">避難情報</a></li>
+		<li><a href="setting.html">各種設定</a></li>
+		<li class="right"><a href="about.html">AOBOU</a></li>
+	</ul>
+
+</footer>
+<!-- /フッタここまで -->
+</body>
+</html>

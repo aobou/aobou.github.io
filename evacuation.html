@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+<meta name="keywords" content="青森県,防災,地震,津波,火災,豪雨,避難所">
+<meta name="description" content="青森防災アプリ">
+<title>AOBOU 青森防災アプリ</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/style3.css" media="screen">
+<link rel="manifest" href="json/manifest.json">
+
+<!-- アドレスバー等のブラウザのUIを非表示（ＩＯＳ対応） -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- default（Safariと同じ） / black（黒） / black-translucent（ステータスバーをコンテンツに含める） （ＩＯＳ対応）-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!-- ホーム画面に表示されるアプリ名 （ＩＯＳ対応）-->
+<meta name="apple-mobile-web-app-title" content="TAP10">
+<!-- ホーム画面に表示されるアプリアイコン （ＩＯＳ対応）-->
+<link rel="apple-touch-icon" href="img/aobouicon512.png">
+
+
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/aomorishelter.js"></script>
+<script>
+  function distance(lat1, lng1, lat2, lng2) {
+      lat1 *= Math.PI / 180;
+      lng1 *= Math.PI / 180;
+      lat2 *= Math.PI / 180;
+      lng2 *= Math.PI / 180;
+      return 6371 * Math.acos(Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng2 - lng1) + Math.sin(lat1) * Math.sin(lat2));
+  }
+
+  $(function() {
+
+	var
+	wido = 40.82444,
+	wkeido = 140.74,
+	wlank1 = 9999,
+	wname1,
+	waddress1,
+	wtelno1,
+	wcapacity1,
+	wmemo1,
+	wlatitude1,
+	wlongitude1,
+	wlank2 = 9999,
+	wname2,
+	waddress2,
+	wtelno2,
+	wcapacity2,
+	wmemo2,
+	wlatitude2,
+	wlongitude2,
+	wlank3 = 9999,
+	wname3,
+	waddress3,
+	wtelno3,
+	wcapacity3,
+	wmemo3,
+	wlatitude3,
+	wlongitude3,
+	wlank4 = 9999,
+	wname4,
+	waddress4,
+	wtelno4,
+	wcapacity4,
+	wmemo4,
+	wlatitude4,
+	wlongitude4,
+	len = 2786;
+
+    // --- ブラウザが対応しているかチェック --------------------------------------------------------
+    if (typeof navigator.geolocation === 'undefined') {
+		document.getElementById('moyori').innerHTML ="<p><font size='+2'>位置情報取得に対応していません</font></p>";
+        cmanGetDisplayCtrl('ERR');
+        return false;
+    } else {
+	    // --- オプション設定 --------------------------------------------------------------------------
+    	var wOptions = {
+        	"enableHighAccuracy": true,                       // true : 高精度
+        	"timeout": 10000,                                 // タイムアウト : ミリ秒
+        	"maximumAge": 0                                  // データをキャッシュ時間 : ミリ秒
+	    };
+
+		navigator.geolocation.getCurrentPosition(success,errorFunc,wOptions);
+
+			function errorFunc(error){
+				// エラーコードのメッセージを定義
+				var errorMessage = {
+					0: "原因不明のエラーが発生しました。" ,
+					1: "位置情報の取得が許可されませんでした。" ,
+					2: "電波状況などで位置情報が取得できませんでした。" ,
+					3: "位置情報の取得に時間がかかり過ぎてタイムアウトしました。" ,
+				} ;
+
+				// エラーコードに合わせたエラー内容をアラート表示
+				// alert( errorMessage[error.code] ) ;
+				document.getElementById('moyori').innerHTML ="<p><font size='+2'>" +  errorMessage[error.code] + "</font></p>";
+			}
+
+			function success(position){
+				wido = position.coords.latitude;
+				wkeido = position.coords.longitude;
+				for(var i = 0; i < len; i++) {
+					var wkyori = distance(wido,wkeido,shelter[i].latitude,shelter[i].longitude);
+					if(wkyori < wlank4) { 
+						if(wkyori < wlank3) {
+							if(wkyori < wlank2) {
+								if(wkyori < wlank1) {
+									wlank1 = wkyori;
+									wname1 = shelter[i].name;
+									waddress1 = shelter[i].address;
+									wtelno1 = shelter[i].telno;
+									wcapacity1 = shelter[i].capacity;
+									wmemo1 = shelter[i].memo;
+									wlatitude1 = shelter[i].latitude;
+									wlongitude1 = shelter[i].longitude;
+								}else{
+									wlank2 = wkyori;
+									wname2 = shelter[i].name;
+									waddress2 = shelter[i].address;
+									wtelno2 = shelter[i].telno;
+									wcapacity2 = shelter[i].capacity;
+									wmemo2 = shelter[i].memo;
+									wlatitude2 = shelter[i].latitude;
+									wlongitude2 = shelter[i].longitude;
+								};
+							}else{
+								wlank3 = wkyori;
+								wname3 = shelter[i].name;
+								waddress3 = shelter[i].address;
+								wtelno3 = shelter[i].telno;
+								wcapacity3 = shelter[i].capacity;
+								wmemo3 = shelter[i].memo;
+								wlatitude3 = shelter[i].latitude;
+								wlongitude3 = shelter[i].longitude;
+							};
+						}else{
+							wlank4 = wkyori;
+							wname4 = shelter[i].name;
+							waddress4 = shelter[i].address;
+							wtelno4 = shelter[i].telno;
+							wcapacity4 = shelter[i].capacity;
+							wmemo4 = shelter[i].memo;
+							wlatitude4 = shelter[i].latitude;
+							wlongitude4 = shelter[i].longitude;
+						};
+					};
+				};
+				document.getElementById('moyori').innerHTML ="<p><font size='+2' class='blink'>" + wname1 + "</font><font size='+2'>（距離約" + Math.round(wlank1 * 1000) + "ｍ）です</font></p>";
+				var target = document.getElementById("moyorimap");
+				target.src = "https://www.google.com/maps?output=embed&z=15&ll=" + + wlatitude1 + "," + wlongitude1 + "&q=" + wname1;
+
+				document.getElementById('hinannm1').innerText = "避難所１：" + wname1;
+				document.getElementById('hinan1').innerHTML ="<p>" + wname1 + "（距離約" + Math.round(wlank1 * 1000)  + "ｍ）</p>";
+				document.getElementById('hinanmemo1').innerHTML ="<p>住　　所：" + waddress1 + "<br>" + "電　　話：" + wtelno1 + "<br>" + "収容人数：" + wcapacity1 + "<br>" +  "備　　考：" + wmemo1 + "<br>この避難所へのルートは避難所１ボタンを押してください</p>"
+				var target = document.getElementById("hinanmap1");
+				target.href = "https://www.google.com/maps/dir/?api=1&destination=" + wlatitude1 + "," + wlongitude1;
+				document.getElementById('hinannm2').innerText = "避難所２：" + wname2;
+				document.getElementById('hinan2').innerHTML ="<p>" + wname2 + "（距離約" + Math.round(wlank2 * 1000)  + "ｍ）</p>";
+				document.getElementById('hinanmemo2').innerHTML ="<p>住　　所：" + waddress2 + "<br>" + "電　　話：" + wtelno2 + "<br>" + "収容人数：" + wcapacity2 + "<br>" +  "備　　考：" + wmemo2 + "<br>この避難所へのルートは避難所２ボタンを押してください</p>"
+				var target = document.getElementById("hinanmap2");
+				target.href = "https://www.google.com/maps/dir/?api=1&destination=" + wlatitude2 + "," + wlongitude2;
+				document.getElementById('hinannm3').innerText = "避難所３：" + wname3;
+				document.getElementById('hinan3').innerHTML ="<p>" + wname3 + "（距離約" + Math.round(wlank3 * 1000)  + "ｍ）</p>";
+				document.getElementById('hinanmemo3').innerHTML ="<p>住　　所：" + waddress3 + "<br>" + "電　　話：" + wtelno3 + "<br>" + "収容人数：" + wcapacity3 + "<br>" +  "備　　考：" + wmemo3 + "<br>この避難所へのルートは避難所３ボタンを押してください</p>"
+				var target4 = document.getElementById("hinanmap3");
+				target4.href = "https://www.google.com/maps/dir/?api=1&destination=" + wlatitude3 + "," + wlongitude3;
+				document.getElementById('hinannm4').innerText = "避難所４：" + wname4;
+				document.getElementById('hinan4').innerHTML ="<p>" + wname4 + "（距離約" + Math.round(wlank4 * 1000)  + "ｍ）</p>";
+				document.getElementById('hinanmemo4').innerHTML ="<p>住　　所：" + waddress4 + "<br>" + "電　　話：" + wtelno4 + "<br>" + "収容人数：" + wcapacity4 + "<br>" +  "備　　考：" + wmemo4 + "<br>この避難所へのルートは避難所４ボタンを押してください</p>"
+				var target4 = document.getElementById("hinanmap4");
+				target4.href = "https://www.google.com/maps/dir/?api=1&destination=" + wlatitude4 + "," + wlongitude4;
+			};
+	}
+});
+</script>
+</head>
+<body>
+
+<!-- ヘッダここから -->
+<header>
+<div id="head">
+
+	<h1>
+		<span>
+			<center>
+				<a href="index.html">
+				<img src="img/aoboulogo.png" width="15%" height="15%"><br><font color="#f0e68c">AOBOU　青森防災</font>
+				</a>
+			</center>
+		</span>
+	</h1>
+	<a href="index.html">＜　戻る</a>
+</div>
+</header>
+<!-- /ヘッダここまで -->
+
+<!-- 最寄り避難所情報ここから -->
+<div>
+	<center><font size="+2">最寄りの避難所は</font><br>
+	<span id="moyori"><p>位置情報取得中です・・・</p></span>
+	</center>
+</div>
+<div class="ggmap"><iframe id="moyorimap" src="https://www.google.com/maps?output=embed&z=15&ll=40.82444,140.74&q=青森県庁" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+<!-- /最寄り避難所情報ここまで -->
+
+<!-- 避難所タブここから -->
+<br><br>
+<div>
+	<center>
+	<p><font size="+2" color="#fffacd">避難所情報</font></p>
+	<p>各避難所への行き方はこちら</p>
+	<span id="hinannm1">避難所１</span><a id="hinanmap1" href="https://www.google.com/maps/dir/?api=1&destination=40.82444,140.71" target="_blank" class="btn1"><img src="img/route.png" width="30" height="30" alt="避難所１" style="vertical-align : middle; background-color:#6495ed;"></a><br>
+	<span id="hinannm2">避難所２</span><a id="hinanmap2" href="https://www.google.com/maps/dir/?api=1&destination=40.82444,140.72" target="_blank" class="btn1"><img src="img/route.png" width="30" height="30" alt="避難所２" style="vertical-align : middle; background-color:#800000;"></a><br>
+	<span id="hinannm3">避難所３</span><a id="hinanmap3" href="https://www.google.com/maps/dir/?api=1&destination=40.82444,140.73" target="_blank" class="btn1"><img src="img/route.png" width="30" height="30" alt="避難所３" style="vertical-align : middle; background-color:#90ee90;"></a><br>
+	<span id="hinannm4">避難所４</span><a id="hinanmap4" href="https://www.google.com/maps/dir/?api=1&destination=40.82444,140.74" target="_blank" class="btn1"><img src="img/route.png" width="30" height="30" alt="避難所４" style="vertical-align : middle; background-color:#f4a460;"></a><br>
+	</center>
+</div>
+<br>
+<center><p>各避難所の詳細情報はこちら</p></center>
+<div class="cp_tab">
+	<input type="radio" name="cp_tab" id="tab3_1" aria-controls="first_tab03" checked>
+	<label id="hinanjo1" for="tab3_1">避難所１</label>
+	<input type="radio" name="cp_tab" id="tab3_2" aria-controls="second_tab03">
+	<label id="hinanjo2" for="tab3_2">避難所２</label>
+	<input type="radio" name="cp_tab" id="tab3_3" aria-controls="third_tab03">
+	<label id="hinanjo3" for="tab3_3">避難所３</label>
+	<input type="radio" name="cp_tab" id="tab3_4" aria-controls="force_tab03">
+	<label id="hinanjo4" for="tab3_4">避難所４</label>
+	<div class="cp_tabpanels">
+		<div id="first_tab03" class="cp_tabpanel">
+		<h2><span id="hinan1"><p>位置情報エラー</p></span></h2>
+		<span id="hinanmemo1"><p></p></span>
+		</div>
+		<div id="second_tab03" class="cp_tabpanel">
+		<h2><span id="hinan2"><p>位置情報エラー</p></span></h2>
+		<span id="hinanmemo2"><p></p></span>
+		</div>
+		<div id="third_tab03" class="cp_tabpanel">
+		<h2><span id="hinan3"><p>位置情報エラー</p></span></h2>
+		<span id="hinanmemo3"><p></p></span>
+		</div>
+		<div id="force_tab03" class="cp_tabpanel">
+		<h2><span id="hinan4"><p>位置情報エラー</p></span></h2>
+		<span id="hinanmemo4"><p></p></span>
+		</div>
+	</div>
+</div>
+<!-- /避難所タブここまで -->
+
+
+<!-- フッタここから -->
+<footer>
+
+	<span>緊急電話番号や避難情報メモの更新は「設定」ボタンより行ってください</span>
+	<ul class="topnav">
+		<li><a class="active" href="index.html">ホーム</a></li>
+		<li><a href="card.html">避難カード</a></li>
+		<li><a href="infomation.html">避難情報</a></li>
+		<li><a href="setting.html">各種設定</a></li>
+		<li class="right"><a href="about.html">AOBOU</a></li>
+	</ul>
+
+</footer>
+<!-- /フッタここまで -->
+</body>
+</html>
