@@ -1,0 +1,53 @@
+{
+  "name": "AOMORI Disaster prevention",
+  "short_name": "AOBOU",
+  "description": "AOMORI area Shelter search, Emergency contact, Infomation of Disaster prevention",
+  "theme_color": "#fa8072",
+  "background_color": "#165e83",
+  "display": "standalone",
+  "Scope": "/",
+  "start_url": "https://aobou.github.io/index.html",
+  "icons": [
+    {
+      "src": "img/aobouicon072.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "img/aobouicon096.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "img/aobouicon128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "img/aobouicon144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "img/aobouicon152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "img/aobouicon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/aobouicon384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "img/aobouicon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
+}
