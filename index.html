@@ -222,8 +222,7 @@
 			}
 			var sendname = localStorage.getItem('name' + mailnumber);
 			text = sendname + "さんへ" + "%0D%0A" + title + "%0D%0A" + "現在の場所：" + msg1.textContent + "%0D%0A" + "地図：https://www.google.com/maps/dir/?api=1&destination=" + msg2.textContent + "," + msg3.textContent;
-			alert(text);
-			//window.open().location.href = "mailto:" + mailadd + "?subject=" + title + "&body=" + text;
+			window.open().location.href = "mailto:" + mailadd + "?subject=" + title + "&body=" + text;
 		}
 	}
 
