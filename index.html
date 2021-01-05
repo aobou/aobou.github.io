@@ -217,11 +217,13 @@
 			var msg3 = document.getElementById('longitude');
 			if(mailtype === 1){
 				title =  "助けてください";
+				msg0 = "困っています。至急助けてください";
 			}else{
 				title =  "大丈夫です";
+				msg0 = "安心してください。こちらは大丈夫です";
 			}
 			var sendname = localStorage.getItem('name' + mailnumber);
-			text = sendname + "さんへ" + "%0D%0A" + title + "%0D%0A" + msg1.textContent + "%0D%0A" + "経度：" + msg2.textContent + "／緯度：" + msg3.textContent;
+			text = sendname + "さんへ" + "%0D%0A" + msg0 + "%0D%0A" + msg1.textContent + "%0D%0A" + "（経度：" + msg2.textContent + "／緯度：" + msg3.textContent + "）";
 			location.href = "mailto:" + mailadd + "?subject=" + title + "&body=" + text;
 		}
 	}
