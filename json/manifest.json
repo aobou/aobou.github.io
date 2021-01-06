@@ -51,6 +51,18 @@
   ],
   "splash_pages": null,
   "url": "https://aobou.github.io",
-  "lang": "",
-  "screenshots": []
+  "lang": "Japanese",
+  "screenshots": [
+      {
+          "src": "[Embedded]",
+          "sizes": "1280x800",
+          "type": "image/png"
+      },
+      {
+          "src": "[Embedded]",
+          "sizes": "750x1334",
+          "type": "image/png"
+      }
+  ],
+  "orientation": "any"
 }
