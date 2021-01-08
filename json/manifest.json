@@ -1,7 +1,7 @@
 {
-  "name": "AOMORI Disaster prevention",
+  "name": "青森防災支援アプリ",
   "short_name": "AOBOU",
-  "description": "AOMORI area Shelter search, Emergency contact, Infomation of Disaster prevention",
+  "description": "青森県内の最寄り避難所検索、緊急連絡者への連絡など災害発生時に必要な機能を詰め込みました",
   "theme_color": "#fa8072",
   "background_color": "#165e83",
   "display": "standalone",
