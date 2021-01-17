@@ -5,7 +5,7 @@
   "theme_color": "#fa8072",
   "background_color": "#165e83",
   "display": "standalone",
-  "categories": ["life", "disaster prevention", "emergency"],
+  "categories": "life",
   "Scope": "/",
   "start_url": "https://aobou.github.io/index.html",
   "icons": [
