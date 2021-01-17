@@ -5,6 +5,7 @@
   "theme_color": "#fa8072",
   "background_color": "#165e83",
   "display": "standalone",
+  "categories": ["life", "disaster prevention", "emergency"],
   "Scope": "/",
   "start_url": "https://aobou.github.io/index.html",
   "icons": [
@@ -54,12 +55,12 @@
   "lang": "Japanese",
   "screenshots": [
       {
-          "src": "[Embedded]",
+          "src": "https://aobou.github.io/json/img/screenshot_001.png",
           "sizes": "1280x800",
           "type": "image/png"
       },
       {
-          "src": "[Embedded]",
+          "src": "https://aobou.github.io/json/img/screenshot_002.png",
           "sizes": "750x1334",
           "type": "image/png"
       }
