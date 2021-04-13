@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/style2.css">
 <link rel="manifest" href="json/manifest.json">
+<script src="js/jquery-3.5.1.min.js"></script>
 
 <!-- アドレスバー等のブラウザのUIを非表示（ＩＯＳ対応） -->
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,9 +20,38 @@
 <!-- ホーム画面に表示されるアプリアイコン （ＩＯＳ対応）-->
 <link rel="apple-touch-icon" href="img/aobouicon512.png">
 
+<script>
+	
+	function pageload(){
+		//現在の場所を取得
+		if (typeof navigator.geolocation === 'undefined') {
+        	return false;
+    	} else {
+	    	// --- オプション設定 --------------------------------------------------------------------------
+    		var wOptions = {
+        		"enableHighAccuracy": true,                       // true : 高精度
+        		"timeout": 10000,                                 // タイムアウト : ミリ秒
+        		"maximumAge": 0                                  // データをキャッシュ時間 : ミリ秒
+		    };
+			navigator.geolocation.getCurrentPosition(success,errorFunc,wOptions);
+		}
+
+		function errorFunc(error){
+		}
+
+		function success(position){
+			//現在位置を取得
+			var target1 = document.getElementById("kikikuru");
+			target1.href = "https://www.jma.go.jp/bosai/risk/#zoom:14/lat:" + position.coords.latitude + "/lon:" + position.coords.longitude + "/colordepth:normal/elements:land";
+			var target2 = document.getElementById("hazard");
+			target2.href = "https://disaportal.gsi.go.jp/maps/index.html?ll="  + position.coords.latitude + "," + position.coords.longitude + "&z=14&base=pale&vs=c1j0l0u0";
+		}
+	}
+
+</script>
 </head>
 
-<body>
+<body onload="pageload();">
 <!-- ヘッダここから -->
 <header>
 	<div id="head">
@@ -45,8 +75,11 @@
 	<ul class="clearfix">
 	<li><a href="check1.html"><img src="img/hinan01.png" width="85" height="85" alt="持ち物" style="background-color:#ff8c00;"><br>持ち物チェック</a></li>
 	<li><a href="check2.html"><img src="img/hinan02.png" width="85" height="85" alt="避難時" style="background-color:#db7093;"><br>避難時チェック</a></li>
+	<li><a id="kikikuru" href="https://www.jma.go.jp/bosai/risk/#zoom:14/lat:40.616493/lon:140.445528/colordepth:normal/elements:land" target="_blank"><img src="img/map.png" width="85" height="85" alt="キキクル" style="background-color:#00bfff;"><br>気象庁キキクル</a></li>
+	<li><a id="hazard" href="https://disaportal.gsi.go.jp/maps/index.html?ll=40.82956,140.736408&z=14&base=pale&vs=c1j0l0u0" target="_blank"><img src="img/map.png" width="85" height="85" alt="ハザードマップ" style="background-color:#228b22;"><br>ハザードマップ</a></li>
 	</ul>
 </div>
+<p align="right"><font size="-2">引用：気象庁　キキクル／国土交通省　ハザードマップポータルサイト</font></p>
 <div id="catebox">
 	<ul class="clearfix">
 	<li><a href="pdf/aomoribousai_01.pdf" target="_blank"><img src="img/saigai01.png" width="85" height="85" alt="地震" style="background-color:#20b2aa;"><br>地震</a></li>
